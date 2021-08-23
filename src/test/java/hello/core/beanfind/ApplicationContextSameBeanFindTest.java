@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ApplicationContextSameBeanFindTest {
 
@@ -26,7 +27,7 @@ public class ApplicationContextSameBeanFindTest {
     void findBeanByTypeDuplicate() {
 //      MemberRepository bean = ac.getBean(MemberRepository.class);
 
-        Assertions.assertThrows(NoUniqueBeanDefinitionException.class,
+        assertThrows(NoUniqueBeanDefinitionException.class,
                 () -> ac.getBean(MemberRepository.class));
     }
 
