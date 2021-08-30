@@ -1,5 +1,8 @@
 package hello.core;
 
+import hello.core.member.MemberRepository;
+import hello.core.member.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -10,6 +13,9 @@ import org.springframework.context.annotation.FilterType;
 //        basePackageClasses = AutoAppConfig.class,  따로 설정하지 않고 root 디렉터리에 두는것을 스프링 부트에서 권장한다.
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
 )
-public class AutoAppConfig  {
-
+public class AutoAppConfig {
+    @Bean(name = "memoryMemberRepository")
+    MemberRepository memoryMemberRepository() {
+        return new MemoryMemberRepository();
+    }
 }
