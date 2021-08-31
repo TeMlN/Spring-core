@@ -34,12 +34,12 @@ public class OrderServiceTest {
         Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);    // VIP에 따라 할인 금액이 1000원 인지 검증
     }
 
-    @Test
-    void fieldInjectionTest() {
-        OrderServiceImpl orderService = new OrderServiceImpl();
-        orderService.setMemberRepository(new MemoryMemberRepository());
-        orderService.setDiscountPolicy(new FixDiscountPolicy());
-
-        orderService.createOrder(1L, "itemA", 30000);
-    }
+//    @Test
+//    void fieldInjectionTest() {
+//        OrderServiceImpl orderService = new OrderServiceImpl();
+//        orderService.setMemberRepository(new MemoryMemberRepository());
+//        orderService.setDiscountPolicy(new FixDiscountPolicy());
+//
+//        orderService.createOrder(1L, "itemA", 30000);
+//    }
 }
